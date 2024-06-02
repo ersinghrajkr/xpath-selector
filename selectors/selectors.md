@@ -71,6 +71,10 @@ https://formy-project.herokuapp.com/form
 
 //button[contains(text(), 'Danger') and @type='button']
 
+[https://formy-project.herokuapp.com/dropdown]()
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a[contains(normalize-space(.), 'Enabled and disabled')]
+
 ### XPath using starts-with() function
 
 //input[starts-with(@id, 'first-n')]
@@ -78,6 +82,48 @@ https://formy-project.herokuapp.com/form
 ### XPath using ends-with() function
 
 //input[ends-with(@id, '-name')]
+[https://formy-project.herokuapp.com/dropdown]()
+
+![1717324676805](image/selectors/1717324676805.png)
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a[substring(text(), string-length(text()) - string-length('Upload') + 1) = 'Upload']
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a[substring(text(), string-length(text()) - string-length('Download') + 1) = 'Download']
+
+if text was id then use below -
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a[substring(@id, string-length(@id) - string-length('Download') + 1) = 'Download']
+
+**Explanation**
+
+```
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="item1">This is an example</div>
+  <div id="item2">Another example text</div>
+  <div id="item3">Different content</div>
+  <div id="item4">Just an example</div>
+</body>
+</html>
+
+```
+
+###### *XPath to Select `<div>` Elements Ending with "example":*
+
+//div[substring(text(), string-length(text()) - string-length('example') + 1) = 'example']
+
+* `<div id="item1">This is an example</div>` and `<div id="item4">Just an example</div>`: These `<div>` elements will be selected because their text content ends with "example".
+* `<div id="item2">Another example text</div>` and `<div id="item3">Different content</div>`: These `<div>` elements will not be selected because their text content does not end with "example".
+
+### XPath using last() function
+
+[https://formy-project.herokuapp.com/dropdown]()
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a[last()]
+
+### XPath using normalize-space()
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a[last()]
 
 ### DATA TABLES Xpath
 
@@ -102,3 +148,74 @@ https://formy-project.herokuapp.com/form
 //table[@id="customers"]/tbody/tr/td/span[last()]/../../td[last()]
 
 //table[@id="customers"]/tbody/tr[last()]/td[last()] - Best way
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/child::a
+
+### Self: Selects the current node itself (`./`)
+
+
+
+### Child: Selects child elements of the context node (`child::`)
+
+Select all `<a>` child elements of a `<div>` element.
+
+[https://formy-project.herokuapp.com/dropdown]()
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/child::a
+
+### Parent: Selects the parent element of the context node (`parent::`)
+
+[https://formy-project.herokuapp.com/dropdown]()
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a/parent::div
+
+
+### Ancestor: Selects all ancestor elements (parents, grandparents, etc.) of the context node (`ancestor::`)
+
+![1717325212411](image/selectors/1717325212411.png)
+
+//div[@class='dropdown show']/ancestor::div
+
+![1717325108650](image/selectors/1717325108650.png)
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a/ancestor::div
+
+![1717325036190](image/selectors/1717325036190.png)
+
+![1717325009540](image/selectors/1717325009540.png)
+
+//div[@class='dropdown show']/div/ancestor::div
+
+### Following-sibling: Selects the following sibling element of the context node (`following-sibling::`)
+
+![1717325469779](image/selectors/1717325469779.png)
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a/following-sibling::a
+
+![1717325543754](image/selectors/1717325543754.png)
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a[10]/following-sibling::a
+
+### Preceding-sibling: Selects the preceding sibling element of the context node (`preceding-sibling::`)
+
+![1717325820977](image/selectors/1717325820977.png)
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a[last()]/preceding-sibling::a
+
+
+![1717325687511](image/selectors/1717325687511.png)
+
+//div[@class='dropdown show']/div[@class='dropdown-menu show']/a[10]/preceding-sibling::a
+
+
+### Descendant: Selects all descendant elements (children, grandchildren, etc.) of the context node (`descendant::`)
+
+
+
+
+### Following: Selects all following elements (siblings, children of siblings, etc.) of the context node (`following::`)
+
+
+
+
+### Preceding: Selects all preceding elements (siblings, parents of siblings, etc.) of the context node (`preceding::`)
