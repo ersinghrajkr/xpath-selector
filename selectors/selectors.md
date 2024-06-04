@@ -153,8 +153,6 @@ if text was id then use below -
 
 ### Self: Selects the current node itself (`./`)
 
-
-
 ### Child: Selects child elements of the context node (`child::`)
 
 Select all `<a>` child elements of a `<div>` element.
@@ -168,7 +166,6 @@ Select all `<a>` child elements of a `<div>` element.
 [https://formy-project.herokuapp.com/dropdown]()
 
 //div[@class='dropdown show']/div[@class='dropdown-menu show']/a/parent::div
-
 
 ### Ancestor: Selects all ancestor elements (parents, grandparents, etc.) of the context node (`ancestor::`)
 
@@ -202,20 +199,44 @@ Select all `<a>` child elements of a `<div>` element.
 
 //div[@class='dropdown show']/div[@class='dropdown-menu show']/a[last()]/preceding-sibling::a
 
-
 ![1717325687511](image/selectors/1717325687511.png)
 
 //div[@class='dropdown show']/div[@class='dropdown-menu show']/a[10]/preceding-sibling::a
 
 
+**[https://formy-project.herokuapp.com/form]()**
+
 ### Descendant: Selects all descendant elements (children, grandchildren, etc.) of the context node (`descendant::`)
 
+![1717501561629](image/selectors/1717501561629.png)
 
-
+//form/descendant::input
 
 ### Following: Selects all following elements (siblings, children of siblings, etc.) of the context node (`following::`)
 
 
-
+//body/following::*
 
 ### Preceding: Selects all preceding elements (siblings, parents of siblings, etc.) of the context node (`preceding::`)
+
+![1717501677782](image/selectors/1717501677782.png)
+
+//form//preceding::input
+
+![1717501808418](image/selectors/1717501808418.png)
+
+//form//preceding::div
+
+//form//input/preceding::*
+
+![1717502030704](image/selectors/1717502030704.png)
+
+//form/preceding::*
+
+![1717502144054](image/selectors/1717502144054.png)
+
+//title/preceding::*
+
+![1717502284820](image/selectors/1717502284820.png)
+
+//link/preceding::*
